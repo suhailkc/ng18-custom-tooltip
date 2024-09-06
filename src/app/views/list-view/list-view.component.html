@@ -1,0 +1,18 @@
+<app-tooltip 
+    [showsTooltip]="showsTooltiop" 
+    [tooltipText]="tooltipText" 
+    [topPosition]="topPositon" 
+    [leftPosition]="leftPosition"
+/>
+
+<ul class="list-group ms-5 mt-5">
+    @for(reactor of reactors; track reactor) {
+        <li 
+            class="list-group-item" 
+            (mouseover)="onMouseover(reactor.name, $event)"
+            (mouseout)="onMouseout()"
+        >
+            {{ reactor.name | slice: 0:17 }}<span *ngIf="reactor.name.length >=17">...</span>
+        </li>
+    }
+</ul>
